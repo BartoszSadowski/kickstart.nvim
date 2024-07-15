@@ -102,10 +102,10 @@ vim.g.have_nerd_font = false
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
+vim.opt.mouse = ''
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -153,6 +153,13 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Set custom file mappings
+vim.filetype.add {
+  extension = {
+    Jenkinsfile = 'groovy',
+  },
+}
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -359,6 +366,12 @@ require('lazy').setup({
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          file_ignore_patterns = {
+            'dist',
+            'build',
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -565,6 +578,10 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        gradle_ls = {
+          filetypes = { 'gradle' },
+        },
+        groovyls = {},
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -835,7 +852,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'groovy' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
