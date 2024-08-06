@@ -12,6 +12,16 @@ require 'plugins.lazy-bootstrap'
 require('lazy').setup({
   'tpope/vim-sleuth',
 
+  require 'plugins.startup',
+
+  require 'plugins.colorscheme',
+
+  require 'plugins.autoformat',
+
+  require 'plugins.autocomplete',
+
+  require 'plugins.autopairs',
+
   require 'plugins.gitsigns',
 
   require 'plugins.which-key',
@@ -20,23 +30,16 @@ require('lazy').setup({
 
   require 'plugins.lsp',
 
-  require 'plugins.autoformat',
+  require 'plugins.treesitter',
 
-  require 'plugins.autocomplete',
-
-  require 'plugins.colorscheme',
+  require 'plugins.indent_line',
 
   require 'plugins.util.mini',
-
-  require 'plugins.treesitter',
 
   -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 }, {
   ui = {
