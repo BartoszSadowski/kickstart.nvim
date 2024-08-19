@@ -36,6 +36,8 @@ require('lazy').setup({
 
   require 'plugins.util.mini',
 
+  require 'plugins.markdown',
+
   -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
   --
   -- require 'kickstart.plugins.debug',

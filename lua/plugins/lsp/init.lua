@@ -1,6 +1,6 @@
 return {
   {
-    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
+    -- `lazydev` configures Lua LSP for your Neovim config, runtime and pluginslsp
     -- used for completion, annotations and signatures of Neovim apis
     'folke/lazydev.nvim',
     ft = 'lua',
@@ -29,6 +29,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
+      require('lspconfig').flow.setup {}
       -- Brief aside: **What is LSP?**
       --
       -- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -169,6 +170,8 @@ return {
           filetypes = { 'gradle' },
         },
         groovyls = {},
+        cucumber_language_server = {},
+        tsserver = {},
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -179,7 +182,6 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
         --
 
         lua_ls = {
@@ -228,4 +230,5 @@ return {
       }
     end,
   },
+  require 'plugins.lsp.lsp-toggle',
 }
