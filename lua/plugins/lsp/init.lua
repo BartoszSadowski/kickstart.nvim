@@ -170,7 +170,14 @@ return {
           filetypes = { 'gradle' },
         },
         groovyls = {},
-        cucumber_language_server = {},
+        cucumber_language_server = {
+          settings = {
+            cucumber = {
+              features = { '**/*.feature' },
+              glue = { '**/step-definitions/**/*steps.js' },
+            },
+          },
+        },
         tsserver = {},
         -- clangd = {},
         -- gopls = {},
