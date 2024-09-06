@@ -1,5 +1,6 @@
+-- Autoformat
 return {
-  { -- Autoformat
+  {
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
@@ -8,6 +9,8 @@ return {
         '<leader>f',
         function()
           local basic_format_filetypes = { 'cucumber' }
+
+          -- Use basic format for selected filetypes
           for i = 1, #basic_format_filetypes do
             if basic_format_filetypes[i] == vim.bo.filetype then
               return vim.api.nvim_feedkeys('gg=G', 'n', true)
