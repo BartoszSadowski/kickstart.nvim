@@ -1,7 +1,6 @@
 require 'plugins.lazy-bootstrap'
 require('lazy').setup({
   'tpope/vim-sleuth',
-  require 'plugins.startup',
   require 'plugins.colorscheme',
   require 'plugins.autoformat',
   require 'plugins.autocomplete',

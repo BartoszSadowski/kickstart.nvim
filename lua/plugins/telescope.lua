@@ -78,4 +78,33 @@ return {
       end, { desc = '[S]earch Recent Files ("." for repeat)' })
     end,
   },
+  {
+    'axkirillov/easypick.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      local easypick = require 'easypick'
+
+      local get_default_branch = "git rev-parse --symbolic-full-name refs/remotes/origin/HEAD | sed 's!.*/!!'"
+      local base_branch = vim.fn.system(get_default_branch) or 'main'
+
+      easypick.setup {
+        pickers = {
+          {
+            name = 'ls',
+            command = 'ls',
+            previewer = easypick.previewers.default(),
+          },
+          {
+            name = 'changed_files',
+            command = 'git diff --name-only $(git merge-base HEAD ' .. base_branch .. ' )',
+            previewer = easypick.previewers.file_diff(),
+          },
+        },
+      }
+
+      vim.keymap.set('n', '<leader>se', ':Easypick<CR>', { desc = '[S]earch using [E]asypick' })
+    end,
+  },
 }

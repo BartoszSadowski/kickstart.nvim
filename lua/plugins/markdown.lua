@@ -6,5 +6,8 @@ return {
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons',
     },
+    config = function()
+      vim.keymap.set('n', '<leader>tm', ':Markview<CR>', { desc = '[T]oggle [M]arkview' })
+    end,
   },
 }
