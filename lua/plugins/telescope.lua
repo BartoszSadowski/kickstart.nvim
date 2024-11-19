@@ -24,6 +24,14 @@ return {
             'dist',
             'build',
           },
+          mappings = {
+            n = {
+              ['<C-d>'] = require('telescope.actions').delete_buffer,
+            },
+            i = {
+              ['<C-d>'] = require('telescope.actions').delete_buffer,
+            },
+          },
         },
         extensions = {
           ['ui-select'] = {
@@ -48,6 +56,7 @@ return {
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>sa.', builtin.oldfiles, { desc = '[S]earch [A]ll Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>sc', builtin.git_status, { desc = '[S]earch through [C]hanges' })
 
       vim.keymap.set('n', '<leader>/', function()
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -76,35 +85,6 @@ return {
           builtin.oldfiles { cwd = git_dir }
         end
       end, { desc = '[S]earch Recent Files ("." for repeat)' })
-    end,
-  },
-  {
-    'axkirillov/easypick.nvim',
-    dependencies = {
-      'nvim-telescope/telescope.nvim',
-    },
-    config = function()
-      local easypick = require 'easypick'
-
-      local get_default_branch = "git rev-parse --symbolic-full-name refs/remotes/origin/HEAD | sed 's!.*/!!'"
-      local base_branch = vim.fn.system(get_default_branch) or 'main'
-
-      easypick.setup {
-        pickers = {
-          {
-            name = 'ls',
-            command = 'ls',
-            previewer = easypick.previewers.default(),
-          },
-          {
-            name = 'changed_files',
-            command = 'git diff --name-only $(git merge-base HEAD ' .. base_branch .. ' )',
-            previewer = easypick.previewers.file_diff(),
-          },
-        },
-      }
-
-      vim.keymap.set('n', '<leader>se', ':Easypick<CR>', { desc = '[S]earch using [E]asypick' })
     end,
   },
 }
