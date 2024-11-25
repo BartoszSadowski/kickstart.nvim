@@ -17,4 +17,6 @@ require 'autocommands'
 
 require 'plugins'
 
+require 'open-idea'
+
 -- vim: ts=2 sts=2 sw=2 et

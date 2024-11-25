@@ -148,6 +148,10 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
+
+          -- prevent LSP to override treesitter coloring
+          -- vim.highlight.priorities.semantic_tokens = 95
+          client.server_capabilities.semanticTokensProvider = vim.NIL
         end,
       })
 
@@ -179,6 +183,7 @@ return {
               glue = {
                 '**/step-definitions/**/*steps.js',
                 '**/step-definitions/**/*steps.ts',
+                '**/steps/**/*.java',
               },
             },
           },

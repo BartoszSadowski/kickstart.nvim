@@ -15,6 +15,7 @@ return {
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>l', group = '[L]sp manipilation' },
+        { '<leader>o', group = '[O]pen' },
       }
     end,
   },
