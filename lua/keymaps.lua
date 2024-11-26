@@ -32,6 +32,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Handle files
 vim.keymap.set('n', '<leader>e', ':Explore<CR>', { desc = 'Open file [e]xplorer' })
+vim.keymap.set('n', '<leader>l', ':e<CR>', { desc = 'Re[l]oad file' })
 
 -- Register handling
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y', { silent = true, desc = '[Y]ank to clipboard' })

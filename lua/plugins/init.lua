@@ -13,6 +13,7 @@ require('lazy').setup({
   require 'plugins.indent_line',
   require 'plugins.util.mini',
   require 'plugins.markdown',
+  require 'plugins.casing',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
