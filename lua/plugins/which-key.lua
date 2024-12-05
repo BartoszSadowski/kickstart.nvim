@@ -13,6 +13,7 @@ return {
         { '<leader>s', group = '[S]earch' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>td', group = '[T]oggle [D]iagnostic' },
         { '<leader>g', group = '[G]it Hunk', mode = { 'n', 'v' } },
         { '<leader>l', group = '[L]sp manipilation' },
         { '<leader>o', group = '[O]pen' },
