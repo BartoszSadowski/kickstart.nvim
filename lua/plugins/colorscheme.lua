@@ -1,10 +1,18 @@
 return {
   {
-    'savq/melange-nvim',
+    'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      vim.opt.termguicolors = true
-      vim.cmd.colorscheme 'melange'
+      require('catppuccin').setup {
+        color_overrides = {
+          frappe = {
+            base = '#282c34',
+          },
+        },
+      }
+
+      -- vim.opt.termguicolors = true
+      vim.cmd.colorscheme 'catppuccin-frappe'
 
       -- Configure highlights
       vim.cmd.hi 'Comment gui=none'
