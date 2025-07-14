@@ -8,6 +8,8 @@ return {
     },
     config = function()
       vim.keymap.set('n', '<leader>tm', ':Markview<CR>', { desc = '[T]oggle [M]arkview' })
+
+      vim.opt.conceallevel = 0
     end,
   },
 }

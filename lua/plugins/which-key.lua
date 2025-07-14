@@ -17,6 +17,8 @@ return {
         { '<leader>g', group = '[G]it Hunk', mode = { 'n', 'v' } },
         { '<leader>l', group = '[L]sp manipilation' },
         { '<leader>o', group = '[O]pen' },
+        { '<leader>b', group = '[B]uffer' },
+        { '<leader>bf', group = '[B]uffer [F]ile' },
       }
     end,
   },

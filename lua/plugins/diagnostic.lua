@@ -23,5 +23,9 @@ return {
       vim.diagnostic.config { virtual_text = false }
       require('tiny-inline-diagnostic').disable()
     end, { desc = '[T]oggle [D]iagnostic [N]one' })
+
+      vim.keymap.set('n', '<leader>tdf', function ()
+      vim.diagnostic.open_float();
+      end, {desc = '[T]oggle [D]iagnostic [F]loat' })
   end,
 }

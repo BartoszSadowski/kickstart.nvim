@@ -3,13 +3,7 @@ return {
     'catppuccin/nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      require('catppuccin').setup {
-        color_overrides = {
-          frappe = {
-            base = '#282c34',
-          },
-        },
-      }
+      require('catppuccin').setup {}
 
       -- vim.opt.termguicolors = true
       vim.cmd.colorscheme 'catppuccin-frappe'
